@@ -23,7 +23,8 @@
   "homepage": "https://github.com/jsnomad/koa-restful-boilerplate#readme",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon server/ --exec babel-node",
+    "start": "node dist/",
+    "dev": "nodemon server/ --exec babel-node",
     "build": "babel server -d dist",
     "lint": "./node_modules/.bin/eslint ./server",
     "test": "npm run lint && npm run mocha",
