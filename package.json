@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/jsnomad/koa-restful-boilerplate#readme",
   "main": "server/index.js",
+  "engines": {
+    "node": "12.14.0"
+  },
   "scripts": {
     "start": "node dist/",
     "dev": "nodemon server/ --exec babel-node",
