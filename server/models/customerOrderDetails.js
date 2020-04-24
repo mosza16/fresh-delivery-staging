@@ -37,6 +37,12 @@ const citySchema = new Schema({
       required: true,
     },
   },
+  productDetail: {
+    detail: String,
+    totalCost: Number,
+    etc: String,
+    deliveryCost: Number,
+  },
   phones: { type: [String], required: true },
   updatedDate: {
     type: Date,
