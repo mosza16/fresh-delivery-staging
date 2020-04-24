@@ -34,10 +34,10 @@ class CustomerOrderDetailControllers {
    */
   async add(ctx) {
     try {
-      const { billNo, billDate } = ctx.request.body;
+      const { billNo, billDate, ...payload } = ctx.request.body;
       const detail = await CustomerOrderDetails.findOneAndUpdate(
         { billNo, billDate },
-        ctx.request.body,
+        { ...payload },
         { upsert: true }
       );
       ctx.body = detail;
