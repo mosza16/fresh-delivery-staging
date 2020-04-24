@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export default (ctx) => {
-  if (ctx.request.body.password === "password@142581") {
+  if (ctx.request.body.password === "password@00000000") {
     ctx.status = 200;
     ctx.body = {
       token: jwt.sign(

@@ -34,7 +34,12 @@ class CustomerOrderDetailControllers {
    */
   async add(ctx) {
     try {
-      const detail = await new CustomerOrderDetails(ctx.request.body).save();
+      const { billNo, billDate } = ctx.request.body;
+      const detail = await CustomerOrderDetails.findOneAndUpdate(
+        { billNo, billDate },
+        ctx.request.body,
+        { upsert: true }
+      );
       ctx.body = detail;
     } catch (err) {
       ctx.throw(422);
@@ -42,4 +47,4 @@ class CustomerOrderDetailControllers {
   }
 }
 
-export default new CustomerOrderDetailControllers()
+export default new CustomerOrderDetailControllers();
