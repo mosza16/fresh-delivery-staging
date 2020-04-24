@@ -11,6 +11,7 @@ import { port, connexionString } from "./config";
 mongoose.connect(connexionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 mongoose.connection.on("error", console.error);
 
