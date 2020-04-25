@@ -3,22 +3,22 @@ import lineNotify from "../utils/lineNotify";
 
 function lineNotifyMessageBuilder(orderDetail) {
   const message = `
-  ********** วันที่: ${orderDetail.billDate} **********
-  ********** บิลที่: ${orderDetail.billNo} **********
-  ผู้รับ: ${orderDetail.name}
-  ที่อยู่: ${orderDetail.addressInfo.address}
-  แขวง/ตำบล: ${orderDetail.addressInfo.subdistrict}
-  เขต/อำเภอ: ${orderDetail.addressInfo.district}
-  จังหวัด: ${orderDetail.addressInfo.province}
-  รหัสไปรษณีย์: ${orderDetail.addressInfo.postalCode}
-  เบอร์โทร: ${orderDetail.phones.join(",")}
-  -------------------------------
-  ข้อมูลสินค้า:
-  ${orderDetail.productDetail.detail}
-  -------------------------------
-  ค่าส่ง: ${orderDetail.productDetail.deliveryCost}
-  ${orderDetail.productDetail.etc || ""}
-  -------------------------------
+***** วันที่: ${orderDetail.billDate} *****
+***** [บิลที่: ${orderDetail.billNo}] *****
+ผู้รับ: ${orderDetail.name}
+ที่อยู่: ${orderDetail.addressInfo.address}
+แขวง/ตำบล: ${orderDetail.addressInfo.subdistrict}
+เขต/อำเภอ: ${orderDetail.addressInfo.district}
+จังหวัด: ${orderDetail.addressInfo.province}
+รหัสไปรษณีย์: ${orderDetail.addressInfo.postalCode}
+เบอร์โทร: ${orderDetail.phones.join(",")}
+-------------------------------
+ข้อมูลสินค้า:
+${orderDetail.productDetail.detail}
+-------------------------------
+ค่าส่ง: ${orderDetail.productDetail.deliveryCost}
+${orderDetail.productDetail.etc || ""}
+-------------------------------
   `;
   return message;
 }
