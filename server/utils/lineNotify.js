@@ -6,7 +6,7 @@ const PATH = "/api/notify";
 
 const token =
   process.env.NODE_ENV === "production"
-    ? "KcaREbdbBgxOQpL3bEwdZcCtCVT8HjjKumQCHLSHRo7"
+    ? "5mFuwSEnYc5ekKPbwJMzdi6iIfZtLn38OF4jFE8R1TA"
     : "KcaREbdbBgxOQpL3bEwdZcCtCVT8HjjKumQCHLSHRo7";
 
 export default function () {
