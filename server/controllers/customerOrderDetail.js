@@ -14,7 +14,7 @@ function lineNotifyMessageBuilder(orderDetail) {
   ข้อมูลสินค้า
   ${orderDetail.addressInfo.detail}
   ค่าส่ง ${orderDetail.addressInfo.deliveryCost}
-  ${orderDetail.addressInfo.etc || ''}
+  ${orderDetail.addressInfo.etc || ""}
   `;
   return message;
 }
@@ -72,7 +72,7 @@ class CustomerOrderDetailControllers {
       const detail = await CustomerOrderDetails.findOneAndUpdate(
         { billNo, billDate },
         { ...payload },
-        { upsert: true }
+        { upsert: true, new: true }
       );
       await lineNotify().notify({ message: lineNotifyMessageBuilder(detail) });
       ctx.body = detail;
@@ -81,7 +81,5 @@ class CustomerOrderDetailControllers {
     }
   }
 }
-
-
 
 export default new CustomerOrderDetailControllers();
