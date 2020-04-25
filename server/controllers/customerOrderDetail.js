@@ -11,10 +11,12 @@ function lineNotifyMessageBuilder(orderDetail) {
   เขต/อำเภอ: ${orderDetail.addressInfo.district}
   จังหวัด: ${orderDetail.addressInfo.province}
   รหัสไปรษณีย์: ${orderDetail.addressInfo.postalCode}
-  ข้อมูลสินค้า
-  ${orderDetail.productDetail.detail}
+  -------------------------------
+  ข้อมูลสินค้า: ${orderDetail.productDetail.detail}
+  -------------------------------
   ค่าส่ง ${orderDetail.productDetail.deliveryCost}
   ${orderDetail.productDetail.etc || ""}
+  -------------------------------
   `;
   return message;
 }
