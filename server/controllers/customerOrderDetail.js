@@ -3,8 +3,8 @@ import lineNotify from "../utils/lineNotify";
 
 function lineNotifyMessageBuilder(orderDetail) {
   const message = `
-  วันที่: ${orderDetail.billDate}
-  บิลที่: ${orderDetail.billNo}
+  ********** วันที่: ${orderDetail.billDate} **********
+  ********** บิลที่: ${orderDetail.billNo} **********
   ผู้รับ: ${orderDetail.name}
   ที่อยู่: ${orderDetail.addressInfo.address}
   แขวง/ตำบล: ${orderDetail.addressInfo.subdistrict}
@@ -13,9 +13,10 @@ function lineNotifyMessageBuilder(orderDetail) {
   รหัสไปรษณีย์: ${orderDetail.addressInfo.postalCode}
   เบอร์โทร: ${orderDetail.phones.join(",")}
   -------------------------------
-  ข้อมูลสินค้า: ${orderDetail.productDetail.detail}
+  ข้อมูลสินค้า:
+  ${orderDetail.productDetail.detail}
   -------------------------------
-  ค่าส่ง ${orderDetail.productDetail.deliveryCost}
+  ค่าส่ง: ${orderDetail.productDetail.deliveryCost}
   ${orderDetail.productDetail.etc || ""}
   -------------------------------
   `;
