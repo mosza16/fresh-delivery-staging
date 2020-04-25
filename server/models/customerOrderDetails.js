@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 const citySchema = new Schema({
   name: String,
   billNo: {
-    type: String,
+    type: Number,
     required: true,
   },
   billDate: {

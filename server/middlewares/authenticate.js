@@ -8,7 +8,8 @@ export default (ctx) => {
         {
           role: "admin",
         },
-        "AFSAD*!@*&!)@@DASDS-jwt-secret-key"
+        "AFSAD*!@*&!)@@DASDS-jwt-secret-key",
+        { expiresIn: "2d" }
       ), // Store this key in an environment variable
       message: "Successful Authentication",
     };

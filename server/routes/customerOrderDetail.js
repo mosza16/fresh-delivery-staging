@@ -14,6 +14,12 @@ router.get("/", jwt, CustomerOrderDetailControllers.find);
 
 router.post("/", jwt, CustomerOrderDetailControllers.add);
 
+router.get(
+  "/bill-date/:billDate",
+  jwt,
+  CustomerOrderDetailControllers.findByDate
+);
+
 router.get("/:id", jwt, CustomerOrderDetailControllers.findById);
 
 export default router;

@@ -10,6 +10,20 @@ class CustomerOrderDetailControllers {
   }
 
   /**
+   * Get all cities
+   * @param {ctx} Koa Context
+   */
+  async findByDate(ctx) {
+    ctx.body = await CustomerOrderDetails.find(
+      {
+        billDate: ctx.params.billDate,
+      },
+      null,
+      { sort: { billNo: 1 } }
+    );
+  }
+
+  /**
    * Find a detail
    * @param {ctx} Koa Context
    */
