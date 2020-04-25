@@ -17,8 +17,8 @@ function lineNotifyMessageBuilder(orderDetail) {
 ${orderDetail.productDetail.detail}
 -------------------------------
 ค่าส่ง: ${orderDetail.productDetail.deliveryCost}
-${orderDetail.productDetail.etc || ""}
 -------------------------------
+${orderDetail.productDetail.etc || ""}
   `;
   return message;
 }
