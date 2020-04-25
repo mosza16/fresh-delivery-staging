@@ -25,6 +25,8 @@ routing(app);
 
 // Start the application
 app.listen(port, () =>
-  console.log(`✅  The server is running at http://localhost:${port}/`)
+  console.log(
+    `✅  The server is running at http://localhost:${port}/  ENV = ${process.env.NODE_ENV}`
+  )
 );
 export default app;
