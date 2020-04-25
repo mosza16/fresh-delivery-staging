@@ -1,5 +1,23 @@
 import CustomerOrderDetails from "../models/customerOrderDetails";
+import lineNotify from "../utils/lineNotify";
 
+function lineNotifyMessageBuilder(orderDetail) {
+  const message = `
+  วันที่: ${orderDetail.billDate}
+  บิลที่: ${orderDetail.billNo}
+  ผู้รับ: ${orderDetail.name}
+  ที่อยู่: ${orderDetail.addressInfo.address}
+  แขวง/ตำบล: ${orderDetail.addressInfo.subdistrict}
+  เขต/อำเภอ: ${orderDetail.addressInfo.district}
+  จังหวัด: ${orderDetail.addressInfo.province}
+  รหัสไปรษณีย์: ${orderDetail.addressInfo.postalCode}
+  ข้อมูลสินค้า
+  ${orderDetail.addressInfo.detail}
+  ค่าส่ง ${orderDetail.addressInfo.deliveryCost}
+  ${orderDetail.addressInfo.etc || ''}
+  `;
+  return message;
+}
 class CustomerOrderDetailControllers {
   /**
    * Get all cities
@@ -46,6 +64,8 @@ class CustomerOrderDetailControllers {
    * Add a detail
    * @param {ctx} Koa Context
    */
+
+  // line notify token test KcaREbdbBgxOQpL3bEwdZcCtCVT8HjjKumQCHLSHRo7
   async add(ctx) {
     try {
       const { billNo, billDate, ...payload } = ctx.request.body;
@@ -54,11 +74,14 @@ class CustomerOrderDetailControllers {
         { ...payload },
         { upsert: true }
       );
+      await lineNotify().notify({ message: lineNotifyMessageBuilder(detail) });
       ctx.body = detail;
     } catch (err) {
       ctx.throw(422);
     }
   }
 }
+
+
 
 export default new CustomerOrderDetailControllers();
